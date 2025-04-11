@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom Goan colors
+				goa: {
+					teal: '#2A9D8F',
+					coral: '#E76F51',
+					sand: '#F4A261',
+					sunshine: '#E9C46A',
+					ocean: '#264653'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'wave': {
+					'0%': { transform: 'translateX(0) translateZ(0) scaleY(1)' },
+					'50%': { transform: 'translateX(-25%) translateZ(0) scaleY(0.8)' },
+					'100%': { transform: 'translateX(-50%) translateZ(0) scaleY(1)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-light': {
+					'0%, 100%': { opacity: '0.85' },
+					'50%': { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'wave': 'wave 10s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-light': 'pulse-light 3s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'goa-gradient': 'linear-gradient(135deg, #2A9D8F 0%, #264653 100%)',
+				'coral-gradient': 'linear-gradient(135deg, #E76F51 0%, #F4A261 100%)',
 			}
 		}
 	},
