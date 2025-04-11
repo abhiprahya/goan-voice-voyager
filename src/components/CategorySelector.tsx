@@ -1,4 +1,5 @@
-import { Waves, Landmark, Utensils, Scroll, ShoppingBag, PalmTree } from "lucide-react";
+
+import { Waves, Landmark, Utensils, Scroll, ShoppingBag, Palmtree } from "lucide-react";
 import { SupportedLanguage, getUIText } from "@/utils/languageUtils";
 import { categories } from "@/data/places";
 
@@ -18,7 +19,7 @@ export const CategorySelector = ({ selectedCategory, onSelectCategory, language 
       case "utensils": return <Utensils size={20} />;
       case "scroll": return <Scroll size={20} />;
       case "shopping-bag": return <ShoppingBag size={20} />;
-      case "palmtree": return <PalmTree size={20} />;
+      case "palmtree": return <Palmtree size={20} />;
       default: return <Landmark size={20} />;
     }
   };

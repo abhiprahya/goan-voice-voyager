@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Search, ChevronRight } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -10,30 +9,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SupportedLanguage, getUIText } from "@/utils/languageUtils";
 import { places } from "@/data/places";
-import { useToast } from "sonner";
+import { toast } from "sonner";
 
 const Index = () => {
   const [language, setLanguage] = useState<SupportedLanguage>("en");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [filteredPlaces, setFilteredPlaces] = useState(places);
-  const toast = useToast();
   
   const uiText = getUIText(language);
   
-  // Filter places based on search and category
   useEffect(() => {
     let result = places;
     
     if (searchQuery) {
       const lowerQuery = searchQuery.toLowerCase();
       result = result.filter(place => {
-        // Check name in current language
         const name = language === 'en' 
           ? place.name.toLowerCase() 
           : place.translations[language]?.name.toLowerCase() || place.name.toLowerCase();
           
-        // Check description in current language
         const desc = language === 'en'
           ? place.description.toLowerCase()
           : place.translations[language]?.description.toLowerCase() || place.description.toLowerCase();
@@ -70,7 +65,6 @@ const Index = () => {
       />
       
       <main className="flex-grow">
-        {/* Hero Section */}
         <section className="relative bg-goa-gradient text-white py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
@@ -106,7 +100,6 @@ const Index = () => {
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent"></div>
         </section>
         
-        {/* Categories Section */}
         <section className="py-10">
           <div className="container mx-auto px-4">
             <CategorySelector 
@@ -117,7 +110,6 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Featured Places */}
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center mb-6">
@@ -146,7 +138,6 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Call to Action */}
         <section className="py-16 bg-goa-teal text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Explore Goa?</h2>
